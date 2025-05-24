@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    internal class Product
+    public class Product : ProductBase
     {
+        public double Price { get; set; }
+        public int Stock { get; set; }
     }
 }
