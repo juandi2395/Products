@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36109.1 d17.14
+VisualStudioVersion = 17.14.36109.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{24E0F61E-82A1-4E72-8666-19924C1F7775}"
 EndProject
@@ -10,6 +10,14 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{9AE2F336-2939-4FC5-9575-42DB017B9231}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataPersistence", "DataPersistence\DataPersistence.csproj", "{A9079D5D-B148-49F6-939F-B0997A5F41E5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0_Entities", "0_Entities", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1_DataAccess", "1_DataAccess", "{A9E7FAC3-B0FE-4781-8C88-EC813DD80E6A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2_AppLogic", "2_AppLogic", "{F1978C01-067C-4706-8C26-21FD24E4D472}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3_UI", "3_UI", "{81BC904D-90D7-4CA9-A498-B20DCEB65395}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,6 +44,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{24E0F61E-82A1-4E72-8666-19924C1F7775} = {81BC904D-90D7-4CA9-A498-B20DCEB65395}
+		{7F50EF0C-C8A7-4849-B4EC-8D7A8A46EA36} = {F1978C01-067C-4706-8C26-21FD24E4D472}
+		{9AE2F336-2939-4FC5-9575-42DB017B9231} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{A9079D5D-B148-49F6-939F-B0997A5F41E5} = {A9E7FAC3-B0FE-4781-8C88-EC813DD80E6A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2DC21C8C-8740-4FB0-9147-D96D1431A320}
