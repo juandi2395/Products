@@ -21,13 +21,14 @@ namespace BusinessLogic
 
         public List<Product> GetProducts()
         {
-            var list = new List<Product>();
-            return list;
+            FileManager fileManager = new FileManager();
+            var products = fileManager.ReadProducts();
+            return products;
         }
 
         public List<string> validateProduct(string name, double price, int stock)
         {
-            List<string> errors = new List<string>();
+            var errors = new List<string>();
 
             if (string.IsNullOrWhiteSpace(name))
                 errors.Add("Product name cannot be empty.");

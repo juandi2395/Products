@@ -1,0 +1,2 @@
+Id, Name, Price, Stock
+0, PS5, 485.15, 2

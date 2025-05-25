@@ -5,20 +5,55 @@ namespace DataPersistence
     public class FileManager
     {
 
-        private static string filePath = Path.Combine("1_DataAccess", "ListaProductos.txt");
+        private static readonly string filePath = GetFilePath();
+
+        private static string GetFilePath()
+        {
+            string baseDir = AppContext.BaseDirectory;
+            string solutionRoot = Path.GetFullPath(Path.Combine(baseDir, @"..\..\..\..\"));
+            return Path.Combine(solutionRoot, "DataPersistence", "ListaProductos.txt");
+        }
 
         public List<Product> ReadProducts()
         {
-            // -- INTENTAR HACER --
             var products = new List<Product>();
+
+            try
+            {
+                if (!File.Exists(filePath))
+                    return products;
+
+                using (var reader = new StreamReader(filePath))
+                {
+                    reader.ReadLine();
+
+                    string? line;
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        var parts = line.Split(',');
+                        if (parts.Length == 4 &&
+                            int.TryParse(parts[0].Trim(), out int id) &&
+                            double.TryParse(parts[2].Trim(), out double price) &&
+                            int.TryParse(parts[3].Trim(), out int stock))
+                        {
+                            var product = new Product
+                            {
+                                Id = id,
+                                Name = parts[1].Trim(),
+                                Price = price,
+                                Stock = stock
+                            };
+                            products.Add(product);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error reading file: {ex.Message}");
+            }
+
             return products;
-
-        }
-
-        public void SaveProducts(List<Product> products)
-        {
-
-
         }
 
         public void SaveProduct(Product product)

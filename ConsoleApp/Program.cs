@@ -14,8 +14,7 @@ public class Program
         Console.WriteLine("Select an option:");
 
         var option = Int32.Parse(Console.ReadLine());
-
-        
+        ProductManager productManager = new ProductManager();
 
         switch (option)
         {
@@ -27,8 +26,8 @@ public class Program
                 Console.WriteLine("Enter product stock:");
                 var productStock = Int32.Parse(Console.ReadLine());
 
-                ProductManager productManager = new ProductManager();
-                List<string> errors = productManager.validateProduct(productName, productPrice, productStock);
+                
+                var errors = productManager.validateProduct(productName, productPrice, productStock);
 
                 if (errors.Count > 0)
                 {
@@ -46,8 +45,18 @@ public class Program
 
                 break;
             case 2:
-                Console.WriteLine("Viewing products...");
-                // Here you would call the method to view products
+                var list = productManager.GetProducts();
+
+                Console.WriteLine("Id\tName\t\tPrice\tStock");
+                Console.WriteLine("--------------------------------------");
+
+                foreach (var product in list)
+                {
+                    Console.WriteLine($"{product.Id}\t{product.Name}\t\t{product.Price}\t{product.Stock}");
+                }
+
+                Console.WriteLine("--------------------------------------");
+
                 break;
             case 3:
                 Console.WriteLine("Exiting the application. Goodbye!");
